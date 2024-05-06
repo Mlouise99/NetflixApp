@@ -7,6 +7,7 @@ import Genre from './pages/Genre';
 import News from './pages/News';
 import Movies from './pages/Movies';
 import TV from './pages/TV';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AllPages />}>
           <Route path="/home" element={<Home />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/gen" element={<Genre />} />
           <Route path="/news" element={<News />} />
