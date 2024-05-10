@@ -13,7 +13,7 @@ const MovieDetails = () => {
           `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
           {
             headers: {
-              Authorization: "Bearer YOUR_API_KEY",
+              Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZWJmNTQzY2ExNjE1ZDBmYzgyNmFjMDJiMjFiNWJlZCIsInN1YiI6IjY2MzhkYTU2NjY1NjVhMDEyNjE2ODhiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.J-tMXoB22HRLC1mO48kpYxurgX17cOVPq3h2GxyEt7A",
             },
           }
         );

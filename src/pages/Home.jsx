@@ -6,7 +6,6 @@ const Home = () => {
   const [otherMovies, setOtherMovies] = useState([]);
 
   useEffect(() => {
-    // Fetch trending movies
     const fetchTrendingMovies = async () => {
       try {
         const response = await axios.get(
@@ -47,29 +46,24 @@ const Home = () => {
     fetchOtherMovies();
   }, []);
 
-  // Function to extract year from date string
-  const getYearFromDate = (dateString) => {
-    return new Date(dateString).getFullYear();
-  };
-
+ 
   return (
     <div style={{ backgroundColor: "black", minHeight: "100vh" }}>
       <div className="px-6 lg:px-36 flex flex-col lg:flex-row justify-between gap-10">
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-40">
           <h1 className="text-4xl text-white">FIND MOVIES</h1>
-          <h1 className="text-4xl text-white">
-            TV SHOWS <span className="text-red-700">AND MORE </span>
+          <h1 className="inline-block ml-6 text-4xl font-extrabold text-transparent bg-gradient-to-r from-blue-500 to-red-700 bg-clip-text">
+            TV SHOWS AND MORE 
           </h1>
           <p className="text-white mb-8">
             Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book
+            the 1500s,
           </p>
           <button className="bg-black text-white px-6 py-3 border border-white rounded-lg shadow-md hover:bg-white w-40">
             Watch Tutorial
           </button>
         </div>
-        <div className="relative mb-6">
+        <div className="relative mb-6 mt-20" >
           <img
             src=".././public/Guard.png"
             alt=""
@@ -89,7 +83,7 @@ const Home = () => {
         <h4 className="text-white">See more</h4>
       </div>
 
-      <div className="flex flex-wrap justify-center px-6 lg:px-36 gap-5 mb-10">
+      <div className="flex flex-wrap justify-center px-6 lg:px-36 gap-5 mb-10 grid grid-cols-5">
         {trendingMovies.map((movie) => (
           <div key={movie.id} className="max-w-xs">
             <a href={`/movie/${movie.id}`}>
@@ -103,7 +97,8 @@ const Home = () => {
               <div className="font-bold text-xl mb-2 text-white">
                 {movie.title}
               </div>
-              <p className="text-white">{getYearFromDate(movie.release_date)}</p>
+             
+              <p className="text-white">{movie.release_date}</p>
             </div>
           </div>
         ))}
@@ -113,7 +108,7 @@ const Home = () => {
         <h4 className="text-white">YOU MAY LIKE THIS</h4>
       </div>
 
-      <div className="flex flex-wrap justify-center px-6 lg:px-36 gap-5">
+      <div className="flex flex-wrap justify-center px-6 lg:px-36 gap-5 grid grid-cols-5">
         {otherMovies.map((movie) => (
           <div key={movie.id} className="max-w-xs">
             <a href={`/movie/${movie.id}`}>
@@ -127,7 +122,8 @@ const Home = () => {
               <div className="font-bold text-xl mb-2 text-white">
                 {movie.title}
               </div>
-              <p className="text-white">{getYearFromDate(movie.release_date)}</p>
+             
+              <p className="text-white">{movie.release_date}</p>
             </div>
           </div>
         ))}
